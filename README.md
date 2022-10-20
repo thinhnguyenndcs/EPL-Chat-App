@@ -10,4 +10,4 @@ Sử dụng công nghệ HTML, CSS và Nodejs (Thư viện Socket.io).
 ### `npm start`
 
 Chạy ứng dụng ở chế độ development.\
-Mở [http://localhost:3000](http://localhost:3000) để xem hệ thống trên trình duyệt.
+Mở [http://localhost:8080](http://localhost:8080) để xem hệ thống trên trình duyệt.
