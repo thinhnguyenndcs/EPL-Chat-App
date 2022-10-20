@@ -1,5 +1,5 @@
-# Chat App project
+# EPL chat app project
 Using socket.io and nodejs
-## How to run
+## How to run?
 > 1. npm install
 > 2. npm start
