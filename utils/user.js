@@ -1,16 +1,25 @@
-let user = []
+let rooms_list = {
+    room1: {
+        name: "Mờ U",
+        users: []
+    },
+    room2: {
+        name: "Mờ C",
+        users: []
+    },
+}
 
-const getUser = (room) => user.filter(user => user.room === room);
+const getRoomInfo = (room) => rooms_list[room];
 
-const getUserById = (id) => user.find(user => user.id === id)
+//const getUserById = (id, room) => user.find(user => user.id === id);
 
-const addUser = (userInfo) => user.push(userInfo);
+const addUser = (userInfo, room) => rooms_list[room].users.push(userInfo);
 
-const removeUser = (id) => user = user.filter(user => user.id !== id);
+const removeUser = (id, room) => rooms_list[room].users = rooms_list[room].users.filter(user => user.id !== id);
 
 module.exports = {
-    getUser,
-    getUserById,
+    getRoomInfo,
+    //getUserById,
     addUser,
     removeUser
 }
