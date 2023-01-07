@@ -80,33 +80,35 @@ document.getElementById("form-messages").addEventListener("submit", (event) => {
   event.preventDefault();
   const formData = new FormData(event.target);
   const d = new Date();
-  const message = {
-    senderId: userId,
-    senderName: username,
-    content: formData.get("message"),
-    sendingTime:
-      [padL(d.getDate()), padL(d.getMonth() + 1), d.getFullYear()].join("/") +
-      " " +
-      [padL(d.getHours()), padL(d.getMinutes()), padL(d.getSeconds())].join(
-        ":"
-      ),
-  };
-  socket.emit("send message", message);
-  let contentHTML = document.getElementById("app__messages").innerHTML;
-  contentHTML += `
-        <div class="message-item">
-            <div class="message__row1">
-                <p class="message__name">You</p>
-                <p class="message__date">${message.sendingTime}</p>
-            </div>
-            <div class="message__row2">
-                <p class="message__content">${message.content}</p>
-            </div>
-        </div>`;
-  document.getElementById("app__messages").innerHTML = contentHTML;
-  document.getElementById("input-messages").value = "";
-  const messages_container = document.getElementById("app__messages");
-  messages_container.scrollTop = messages_container.scrollHeight;
+  if (formData.get("message")) {
+    const message = {
+      senderId: userId,
+      senderName: username,
+      content: formData.get("message"),
+      sendingTime:
+        [padL(d.getDate()), padL(d.getMonth() + 1), d.getFullYear()].join("/") +
+        " " +
+        [padL(d.getHours()), padL(d.getMinutes()), padL(d.getSeconds())].join(
+          ":"
+        ),
+    };
+    socket.emit("send message", message);
+    let contentHTML = document.getElementById("app__messages").innerHTML;
+    contentHTML += `
+          <div class="message-item">
+              <div class="own-message__row1">
+                  <p class="own-message__date">${message.sendingTime}</p>
+                  <p class="own-message__name">You</p>
+              </div>
+              <div class="own-message__row2">
+                  <p class="message__content">${message.content}</p>
+              </div>
+          </div>`;
+    document.getElementById("app__messages").innerHTML = contentHTML;
+    document.getElementById("input-messages").value = "";
+    const messages_container = document.getElementById("app__messages");
+    messages_container.scrollTop = messages_container.scrollHeight;
+  }
 });
 
 //Handle received message

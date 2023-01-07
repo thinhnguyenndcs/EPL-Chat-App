@@ -71,6 +71,28 @@
   margin-bottom: 2px;
 }
 
+.own-message__row1 {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 2px;
+}
+
+.own-message__name {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 0px;
+}
+
+.own-message__date {
+  font-weight: 200;
+  margin-right: 15px;
+  margin-bottom: 0px;
+}
+
+.own-message__row2{
+  text-align: right;
+}
+
 .message__name {
   font-weight: bold;
   font-size: 18px;
